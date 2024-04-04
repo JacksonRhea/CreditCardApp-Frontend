@@ -1,0 +1,1 @@
+This is a Credit Cards Rewards app. The main idea is you enter all the credit cards you have and then the app will inform you of the best card for each category.
