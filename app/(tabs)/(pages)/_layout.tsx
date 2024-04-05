@@ -20,9 +20,9 @@ export default function AppLayout() {
       }}
     >
       <Tabs.Screen
-        name="Home"
+        name="homepage"
         options={{
-          title: "Home",
+          title: "Homepage",
           tabBarIcon: () => (
             <View>
               <Text>Home</Text>
@@ -31,7 +31,7 @@ export default function AppLayout() {
         }}
       />
       <Tabs.Screen
-        name="Settings"
+        name="settings"
         options={{
           title: "Settings",
           tabBarIcon: () => (

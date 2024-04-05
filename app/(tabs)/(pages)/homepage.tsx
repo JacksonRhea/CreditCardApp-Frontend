@@ -1,14 +1,43 @@
-import React from "react";
-import { SafeAreaView, View, Text } from "react-native";
+import React, { useState } from "react";
+import { SafeAreaView, View, Text, StyleSheet, Pressable } from "react-native";
+import { Entypo } from "@expo/vector-icons";
 
 const HomePage = () => {
-  return (
-    <SafeAreaView>
-      <View>
-        <Text>Home page</Text>
-      </View>
-    </SafeAreaView>
-  )
-}
+  const [cardCount, setCardCount] = useState(0);
 
-export default HomePage
+  const handleAddCard = () => {
+    console.log("Adding Card")
+  }
+
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
+      {cardCount == 0 ? 
+        <View style={HomePageStyles.noCardView}>
+          <Text style={HomePageStyles.noCardText}>Add cards to see your rewards!</Text>
+          <Pressable onPress={handleAddCard}>
+            <Entypo name="circle-with-plus" size={60} color="black" />
+          </Pressable>
+        </View>
+      :
+      <View>
+        <Text>Here is a look at your rewards</Text>
+        
+      </View>}
+    </SafeAreaView>
+  );
+};
+
+const HomePageStyles = StyleSheet.create({
+  noCardView: {
+    alignItems: "center",
+    flex: 1,
+    justifyContent: "center",
+  },
+  noCardText: {
+    fontSize: 28,
+    marginBottom: '10%',
+    textAlign: 'center'
+  }
+});
+
+export default HomePage;

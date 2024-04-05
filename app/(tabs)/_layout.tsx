@@ -5,9 +5,9 @@ import { Text } from 'react-native';
 export default function RootLayout() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     
-    if (!isLoggedIn) {
-        return <Redirect href='/login' />
-    }
+    // if (!isLoggedIn) {
+    //     return <Redirect href='/login' />
+    // }
 
     return <Stack
         screenOptions={{

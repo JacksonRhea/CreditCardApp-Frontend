@@ -1,6 +1,7 @@
-import { Redirect, useRouter } from "expo-router";
+import { useRouter } from "expo-router";
 import React from "react";
 import { Text, View, SafeAreaView, TextInput, Button, Image, StyleSheet, Pressable } from "react-native";
+import GlobalStyles from "../global/styles"
 
 const LoginPage = () => {
   const router = useRouter();
@@ -10,16 +11,25 @@ const LoginPage = () => {
     router.replace('/homepage');
   }
 
+  const handleCreateAccount =() => {
+    console.log("Create Account")
+    router.replace('/signup')
+  }
+
   return (
     <SafeAreaView>
-      <View style={LoginStyles.loginContainer}>
+      <View style={GlobalStyles.inputContainers}>
         <Image source={require('../assets/logo.jpg')} style={LoginStyles.logoSettings} />
         
-        <TextInput style={LoginStyles.textInputs} placeholder="Email"></TextInput>
-        <TextInput style={LoginStyles.textInputs} placeholder="Password"></TextInput>
+        <TextInput style={GlobalStyles.textInputs} placeholder="Email"></TextInput>
+        <TextInput style={GlobalStyles.textInputs} placeholder="Password"></TextInput>
 
-        <Pressable style={LoginStyles.loginButton} onPress={handleLogin}>
-          <Text style={LoginStyles.buttonText}>Login</Text>
+        <Pressable style={GlobalStyles.loginButton} onPress={handleLogin}>
+          <Text style={GlobalStyles.buttonText}>Login</Text>
+        </Pressable>
+
+        <Pressable onPress={handleCreateAccount}>
+          <Text style={LoginStyles.createAccount}>No account? Sign up!</Text>
         </Pressable>
       </View>
     </SafeAreaView>
@@ -27,33 +37,6 @@ const LoginPage = () => {
 }
 
 const LoginStyles = StyleSheet.create({
-  textInputs: {
-    backgroundColor: '#D8DAD9',
-    width: '90%',
-    alignSelf: 'center',
-    borderWidth: 1,
-    margin: 15,
-    height: 40,
-    borderRadius: 20,
-    paddingLeft: 10
-  },
-  loginContainer: {
-    width: '80%',
-    alignSelf: 'center'
-  },
-  loginButton: {
-    width: '50%',
-    backgroundColor: '#D8DAD9',
-    alignSelf: 'center',
-    marginTop: 20,
-    height: 50,
-    borderRadius: 30,
-    borderWidth: 1
-  },
-  buttonText: {
-    alignSelf: 'center',
-    fontSize: 24,
-  },
   logoSettings: {
     width: 200,
     height: 200,
@@ -62,6 +45,12 @@ const LoginStyles = StyleSheet.create({
     borderWidth: 1,
     marginTop: '12%',
     marginBottom: '20%'
+  },
+  createAccount: {
+    textDecorationLine: 'underline',
+    color: '#0070E0',
+    alignSelf: 'center',
+    marginTop: '15%'
   }
 })
 
